@@ -7,7 +7,11 @@ The pipeline will take this data and transform it, and insert it into a BigQuery
 
 * All credit for the data rests with Google. We are using it to make the pipeline work with a standard stream of data
 * The original GitHub page is at the below link: https://github.com/GoogleCloudPlatform/training-data-analyst
+<<<<<<< HEAD
 
+=======
+![1_tALGu_wFk5YBqyvQIGbAzw](https://user-images.githubusercontent.com/21346531/152820115-7d4caa5a-dd06-40b6-941a-d93578cf2cde.png)
+>>>>>>> 3a5ef26173d3bd951ee4975d4a1d560229f005c4
 
 Prepare your environment
 ------------
@@ -31,7 +35,6 @@ tozihat
 ```
 make install-packages
 ```
-
 ------------
 
 
