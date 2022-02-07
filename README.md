@@ -7,7 +7,7 @@ The pipeline will take this data and transform it, and insert it into a BigQuery
 
 * All credit for the data rests with Google. We are using it to make the pipeline work with a standard stream of data
 * The original GitHub page is at the below link: https://github.com/GoogleCloudPlatform/training-data-analyst
-<<<<<<< HEAD
+
 
 =======
 
@@ -23,21 +23,18 @@ git clone git@github.com:saeedmehr/data_pup_sub.git
 
 install python3.9
 ------------
-tozihat
+
 ```
 make setup-pyenv
 ```
 
 install requirements
 -----------
-tozihat
+
 ```
 make install-packages
 ```
 ------------
-
-
-## Setup with docker
 
 to run the app
 ```
@@ -45,6 +42,7 @@ make init
 make run
 
 ```
+## Setup with docker
 
 run the app via docker
 ```
