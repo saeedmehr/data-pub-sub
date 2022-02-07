@@ -17,12 +17,12 @@ def publish(publisher, topic, events):
          publisher.publish(topic, event_data)
 
 def get_timestamp(line):
-   # look at first field of row
+       
    timestamp = line.decode('utf-8').split(',')[0]
    return datetime.datetime.strptime(timestamp, TIME_FORMAT)
 
 def simulate(topic, ifp, firstObsTime, programStart, speedFactor):
-   # sleep computation
+   
    def compute_sleep_secs(obs_time):
         time_elapsed = (datetime.datetime.utcnow() - programStart).seconds
         sim_time_elapsed = (obs_time - firstObsTime).seconds / speedFactor
@@ -32,27 +32,23 @@ def simulate(topic, ifp, firstObsTime, programStart, speedFactor):
    topublish = list() 
 
    for line in ifp:
-       event_data = line   # entire line of input CSV is the message
-       obs_time = get_timestamp(line) # from first column
+       event_data = line   
+       obs_time = get_timestamp(line) 
 
-       # how much time should we sleep?
+       
        if compute_sleep_secs(obs_time) > 1:
-          # notify the accumulated topublish
-          publish(publisher, topic, topublish) # notify accumulated messages
-          topublish = list() # empty out list
-
-          # recompute sleep, since notification takes a while
+          publish(publisher, topic, topublish) 
+          topublish = list() 
           to_sleep_secs = compute_sleep_secs(obs_time)
           if to_sleep_secs > 0:
              logging.info('Sleeping {} seconds'.format(to_sleep_secs))
              time.sleep(to_sleep_secs)
        topublish.append(event_data)
 
-   # left-over records; notify again
    publish(publisher, topic, topublish)
 
 def peek_timestamp(ifp):
-   # peek ahead to next line, get timestamp and go back
+   
    pos = ifp.tell()
    line = ifp.readline()
    ifp.seek(pos)
@@ -79,7 +75,7 @@ if __name__ == '__main__':
    # notify about each line in the input file
    programStartTime = datetime.datetime.utcnow() 
    with gzip.open(INPUT, 'rb') as ifp:
-      header = ifp.readline()  # skip header
+      header = ifp.readline()  
       firstObsTime = peek_timestamp(ifp)
       logging.info('Sending sensor data from {}'.format(firstObsTime))
       simulate(event_type, ifp, firstObsTime, programStartTime, args.speedFactor)

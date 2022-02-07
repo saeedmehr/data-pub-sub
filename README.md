@@ -29,16 +29,19 @@ install requirements
 -----------
 tozihat
 ```
-make req
+make install-packages
 ```
 
 ------------
+
 
 ## Setup with docker
 
 to run the app
 ```
+make init
 make run
+
 ```
 
 run the app via docker
