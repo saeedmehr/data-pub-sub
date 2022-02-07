@@ -1,6 +1,12 @@
-test
+Data Pipeline on GCP with Pub/Sub, Dataflow, and BigQuery 
 =============
-test
+In this demo we will create a Data Pipeline pipeline to analyze a simulated stream of San Diego traffic data in real time.
+The simulated data is actually a live highway sensor data which will be published to a Cloud Pub/Sub topic. 
+Then a Dataflow streaming pipeline will subscribe to it.
+The pipeline will take this data and transform it, and insert it into a BigQuery table
+
+* All credit for the data rests with Google. We are using it to make the pipeline work with a standard stream of data
+* The original GitHub page is at the below link: https://github.com/GoogleCloudPlatform/training-data-analyst
 
 install python3.9
 ------------
@@ -31,34 +37,6 @@ make docker-build
 make docker-run
 ```
 
-run tests via docker
-```
-make docker-test
-```
 
------------
-## black and sort
-
-to run black:
-```
-make black
-```
-
-run isort
-```
-make isort
-```
-
------------
-
-# To run tests:
-`pytest`
-
-# Documantation
-please see the docs [here](http://127.0.0.1:8000/docs) and [here](http://127.0.0.1:8000/redoc)
-
-# Endpoints
-* An endpoint that responds with a list of the first 10 fizzbuzz entities (i.e. number 1-10): `http://127.0.0.1:8000/fizzbuzz/list`
-* An endpoint that includes a number parameter in the url path, e.g. fizzbuzz/15 and responds with the relevant fizzbuzz entity: `http://127.0.0.1:8000/fizzbuzz/15`
 
 
