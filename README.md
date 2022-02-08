@@ -52,5 +52,25 @@ make docker-run
 ```
 
 
+## Query for testing the DB
 
+Run this query to see the current streamed data (which is being added every 5 secs)
+```
+SELECT * FROM `database_name. demos.average_speeds` LIMIT 100
+```
+
+Run this query to view which highway lanes have the most sensor counts
+```
+SELECT lane , sum(lane) as total 
+FROM `demos. average_speeds` 
+GROUP BY lane
+ORDER BY total DESC
+```
+Run this query to view which lanes have the max average speed
+```
+SELECT lane , avg(speed) as average_speed 
+FROM `demos. average_speeds` 
+GROUP BY lane
+ORDER BY average_speed DESC
+```
 
