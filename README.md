@@ -41,7 +41,6 @@ to run the app
 ```
 make init
 make run
-
 ```
 ## Setup with docker
 
